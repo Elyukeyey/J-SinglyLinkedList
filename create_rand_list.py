@@ -1,17 +1,22 @@
-import node
 import linked_list
 import random
 
-def generate(amount):
-  i = 0
-  list = linked_list.SinglyLinkedList()
 
-  while i < amount:
-    list.push(rand_value())
-    i += 1
+# generate a random list up to 10000
+def generate_list(amount):
+    if amount > 10000:
+        print(f'{amount} is more than the maximum allowed: 10000')
+        return None
 
-  return list  
+    i = 0
+    list = linked_list.SinglyLinkedList()
+
+    while i < amount:
+        list.push(rand_value())
+        i += 1
+
+    return list
 
 
 def rand_value():
-  return random.randint(0, 100000000000)
+    return random.randint(0, 80000)

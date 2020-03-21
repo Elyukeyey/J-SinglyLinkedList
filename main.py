@@ -1,4 +1,3 @@
-import node
 import linked_list
 import create_rand_list
 
@@ -14,4 +13,5 @@ chain.push(777)
 chain.push(888)
 chain.push(999)
 
-chain_2 = create_rand_list.generate(1000)
+chain_2 = create_rand_list.generate_list(10000)
+chain_3 = create_rand_list.generate_list(10001)

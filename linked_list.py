@@ -1,11 +1,36 @@
-import obj_fun
+import decorate
 import node
+
 
 class SinglyLinkedList:
     def __init__(self):
-        self.head = None
-        self.tail = None
-        self.length = 0
+        self._head = None
+        self._tail = None
+        self._length = 0
+
+    @property
+    def length(self):
+        return self._length
+
+    @length.setter
+    def length(self, value):
+        self._length = value
+
+    @property
+    def head(self):
+        return self._head
+
+    @head.setter
+    def head(self, new_head_node):
+        self._head = new_head_node
+
+    @property
+    def tail(self):
+        return self._tail
+
+    @tail.setter
+    def tail(self, new_tail_node):
+        self._tail = new_tail_node
 
     def push(self, value):
         new_node = node.Node(value)
@@ -20,7 +45,7 @@ class SinglyLinkedList:
         self.length += 1
         return self.length
 
-    @obj_fun.print_str
+    @decorate.print_str
     def pop(self):
         if self.length == 0:
             return 'Empty'
@@ -54,7 +79,7 @@ class SinglyLinkedList:
         self.length += 1
         return self.length
 
-    @obj_fun.print_str
+    @decorate.print_str
     def shift(self):
         if self.length == 0:
             return 'Empty'
@@ -69,7 +94,7 @@ class SinglyLinkedList:
         self.length -= 1
         return old_head
 
-    @obj_fun.print_str
+    @decorate.print_str
     def find(self, value):
         if value == self.tail.value:
             return self.tail
@@ -82,7 +107,7 @@ class SinglyLinkedList:
                 current_node = current_node.next
         return -1
 
-    @obj_fun.print_str
+    @decorate.print_str
     def replace(self, old_value, new_value):
         new_node = node.Node(new_value)
 
